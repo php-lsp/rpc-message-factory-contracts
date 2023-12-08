@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Lsp\Contracts\Message\Factory;
 
+use Lsp\Contracts\Message\IdentifiableInterface;
 use Lsp\Contracts\Message\IdInterface;
 use Lsp\Contracts\Message\NotificationInterface;
 use Lsp\Contracts\Message\RequestInterface;
@@ -28,7 +29,7 @@ interface RequestFactoryInterface
      * @param non-empty-string $method Non-empty RPC request method name.
      * @param array<array-key, mixed> $parameters List of RPC request parameters.
      */
-    public function createRequest(string $method, array $parameters = [], IdInterface $id = null): RequestInterface;
+    public function createRequest(string $method, array $parameters = [], IdInterface|IdentifiableInterface $id = null): RequestInterface;
 
     /**
      * Creates a new {@see NotificationInterface} instance by method and
